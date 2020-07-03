@@ -1,0 +1,9 @@
+version: "3.3"
+
+services:
+  pinValidation:
+    build:
+      context: .
+    image: java/pinValidation
+    ports:
+      - "80:80"
