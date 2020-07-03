@@ -8,13 +8,17 @@ import java.util.Scanner;
 public class PinValidation {
     public static void main(String args[]) {
         Scanner keyboard = new Scanner(System.in);
+        String input = "";
         System.out.println("Please enter input: ");
-        String input = keyboard.nextLine();
-        keyboard.close();
+        while (keyboard.hasNextLine()) {
+            input = keyboard.nextLine();
+        }
+
         String output = "Valid number";
         if (!pin(input))
             output = "Invalid number";
         System.out.println(output);
+        keyboard.close();
     }
 
     public static boolean pin(String entry) {

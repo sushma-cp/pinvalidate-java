@@ -1,7 +1,7 @@
 FROM openjdk:8
 WORKDIR /app
-COPY PinValidation.java .
+COPY src src
+RUN ls -lrt
 RUN javac src/main/PinValidation.java
 EXPOSE 80
-CMD ["java", "PinValidation"]
-
+ENTRYPOINT ["java", "src/main/PinValidation"]
