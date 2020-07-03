@@ -60,7 +60,6 @@ public class PinValidation {
         else
             consecutive = true;
 
-        System.out.println(consecutive + " " + check);
         return (consecutive && check);
     }
 
