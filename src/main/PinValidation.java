@@ -3,22 +3,15 @@ package src.main;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 public class PinValidation {
     public static void main(String args[]) {
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
         System.out.println("Please enter input: ");
-        while (keyboard.hasNextLine()) {
-            input = keyboard.nextLine();
-        }
-
+        String input = args[0];
         String output = "Valid number";
         if (!pin(input))
             output = "Invalid number";
         System.out.println(output);
-        keyboard.close();
     }
 
     public static boolean pin(String entry) {
@@ -44,7 +37,6 @@ public class PinValidation {
         for (int i = 1; i < literals.length; i++) {
 
             if ((literals[i] - literals[i - 1]) == 1) {
-                System.out.println(literals[i] + " && " + literals[i - 1]);
                 if (charMap.containsKey(1)) {
                     charMap.put(1, charMap.get(1) + 1);
                 } else {
@@ -52,7 +44,6 @@ public class PinValidation {
                 }
 
             } else if ((literals[i] - literals[i - 1]) == -1) {
-                System.out.println(literals[i] + " -- " + literals[i - 1]);
                 if (charMap.containsKey(-1)) {
                     charMap.put(-1, charMap.get(-1) + 1);
                 } else {
@@ -63,8 +54,6 @@ public class PinValidation {
                 charMap.put(1, 1);
             }
         }
-
-        System.out.println("values = " + charMap.values().size() + " " + charMap.keySet());
 
         if (charMap.values().size() == 1)
             consecutive = false;
